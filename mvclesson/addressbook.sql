@@ -18,17 +18,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mydb13`
+-- Database: `addressbook`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sports`
+-- Table structure for table `addressbook`
 --
 
-DROP TABLE IF EXISTS `sports`;
-CREATE TABLE IF NOT EXISTS `sports` (
+DROP TABLE IF EXISTS `addressbooks`;
+CREATE TABLE IF NOT EXISTS `addressbooks` (
   `id` int NOT NULL AUTO_INCREMENT,
   `category` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -36,10 +36,10 @@ CREATE TABLE IF NOT EXISTS `sports` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `sports`
+-- Dumping data for table `addressbook`
 --
 
-INSERT INTO `sports` (`id`, `category`, `name`) VALUES
+INSERT INTO `addressbooks` (`id`, `category`, `name`) VALUES
 (1, 'not', 'this way'),
 (3, 'yes', 'working');
 COMMIT;

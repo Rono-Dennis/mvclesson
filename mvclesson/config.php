@@ -7,7 +7,7 @@ class config
         $this->host = 'localhost';
         $this->user = 'root';
         $this->pass = 'root';
-        $this->db = 'mydb13';
+        $this->db = 'addressbook';
     }
 }
 

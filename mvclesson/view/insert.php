@@ -1,7 +1,9 @@
 <?php
-        require '../model/sports.php'; 
-        session_start();             
-        $sporttb=isset($_SESSION['sporttbl0'])?unserialize($_SESSION['sporttbl0']):new sports();            
+require '../model/addressbook.php';
+session_start();
+$sporttb = isset($_SESSION['sporttbl0'])
+    ? unserialize($_SESSION['sporttbl0'])
+    : new addressbook();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,15 +28,23 @@
                     </div>
                     <p>Please fill this form and submit to add sports record in the database.</p>
                     <form action="../index.php?act=add" method="post" >
-                        <div class="form-group <?php echo (!empty($sporttb->category_msg)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo !empty(
+                            $sporttb->category_msg
+                        )
+                            ? 'has-error'
+                            : ''; ?>">
                             <label>Sport Category</label>
                             <input type="text" name="category" class="form-control" value="<?php echo $sporttb->category; ?>">
-                            <span class="help-block"><?php echo $sporttb->category_msg;?></span>
+                            <span class="help-block"><?php echo $sporttb->category_msg; ?></span>
                         </div>
-                        <div class="form-group <?php echo (!empty($sporttb->name_msg)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo !empty(
+                            $sporttb->name_msg
+                        )
+                            ? 'has-error'
+                            : ''; ?>">
                             <label>Sports Name</label>
                             <input name="name" class="form-control" value="<?php echo $sporttb->name; ?>">
-                            <span class="help-block"><?php echo $sporttb->name_msg;?></span>
+                            <span class="help-block"><?php echo $sporttb->name_msg; ?></span>
                         </div>
                         <input type="submit" name="addbtn" class="btn btn-primary" value="Submit">
                         <a href="../index.php" class="btn btn-default">Cancel</a>

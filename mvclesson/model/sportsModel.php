@@ -35,7 +35,7 @@ class sportsModel
         try {
             $this->open_db();
             $query = $this->condb->prepare(
-                'INSERT INTO sports (category,name) VALUES (?, ?)'
+                'INSERT INTO addressbooks (category,name) VALUES (?, ?)'
             );
             $query->bind_param('ss', $obj->category, $obj->name);
             $query->execute();
@@ -49,13 +49,14 @@ class sportsModel
             throw $e;
         }
     }
+
     //update record
     public function updateRecord($obj)
     {
         try {
             $this->open_db();
             $query = $this->condb->prepare(
-                'UPDATE sports SET category=?,name=? WHERE id=?'
+                'UPDATE addressbooks SET category=?,name=? WHERE id=?'
             );
             $query->bind_param('ssi', $obj->category, $obj->name, $obj->id);
             $query->execute();
@@ -68,12 +69,15 @@ class sportsModel
             throw $e;
         }
     }
+
     // delete record
     public function deleteRecord($id)
     {
         try {
             $this->open_db();
-            $query = $this->condb->prepare('DELETE FROM sports WHERE id=?');
+            $query = $this->condb->prepare(
+                'DELETE FROM addressbooks WHERE id=?'
+            );
             $query->bind_param('i', $id);
             $query->execute();
             $res = $query->get_result();
@@ -85,6 +89,7 @@ class sportsModel
             throw $e;
         }
     }
+
     // select record
     public function selectRecord($id)
     {
@@ -92,7 +97,7 @@ class sportsModel
             $this->open_db();
             if ($id > 0) {
                 $query = $this->condb->prepare(
-                    'SELECT * FROM sports WHERE id=?'
+                    'SELECT * FROM addressbooks WHERE id=?'
                 );
 
                 if ($query === false) {
@@ -101,11 +106,7 @@ class sportsModel
 
                 $query->bind_param('i', $id);
             } else {
-                $query = $this->condb->prepare('SELECT * FROM sports');
-
-                // if ($query === false) {
-                //     die(mysqli_error($db = config::getInstance()));
-                // }
+                $query = $this->condb->prepare('SELECT * FROM addressbooks');
             }
 
             if ($query === false) {

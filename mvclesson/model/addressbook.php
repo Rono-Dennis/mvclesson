@@ -1,6 +1,6 @@
 <?php
 
-class sports
+class addressbook
 {
     // table fields
     public $id;
